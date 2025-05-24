@@ -50,8 +50,8 @@ vim.o.smartcase = true
 vim.keymap.set({ "", "i" }, "<C-c>", "<Esc>")
 
 -- settings for all lsp servers
-vim.lsp.config('*', {
-	root_markers = { '.git' },
+vim.lsp.config("*", {
+	root_markers = { ".git" },
 })
 
 -- hide all lsp semantic highlights
