@@ -135,7 +135,9 @@ MiniDeps.add({
 	},
 })
 require("nvim-treesitter.configs").setup({
-	ensure_installed = { "lua", "vimdoc" },
+	sync_install = false,
+	ensure_installed = { "lua", "vimdoc", "markdown", "gitcommit" },
+	auto_install = true,
 	highlight = { enable = true },
 })
 vim.api.nvim_create_autocmd("BufReadPost", {
