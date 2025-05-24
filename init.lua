@@ -48,3 +48,14 @@ vim.o.smartcase = true
 
 -- use <C-c> as alias for <Esc>
 vim.keymap.set({ "", "i" }, "<C-c>", "<Esc>")
+
+-- enable all configured lsp servers
+local lsp_servers = {}
+do
+	local lsp_server_runtimes = vim.api.nvim_get_runtime_file("lsp/*.lua", true)
+	for _, f in pairs(lsp_server_runtimes) do
+		local lsp_server_name = vim.fn.fnamemodify(f, ":t:r")
+		table.insert(lsp_servers, lsp_server_name)
+	end
+end
+vim.lsp.enable(lsp_servers)
