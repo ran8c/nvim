@@ -181,6 +181,9 @@ vim.o.smartcase = true
 -- use <C-c> as alias for <Esc>
 vim.keymap.set({ "", "i" }, "<C-c>", "<Esc>")
 
+-- quickly lint current buffer (see `:h makeprg`)
+vim.keymap.set("n", "<leader>m", "<cmd>make<CR>", { desc = "Lint buffer" })
+
 -- lsp buffer setup
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(ev)
