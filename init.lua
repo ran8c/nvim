@@ -23,6 +23,15 @@ require("mini.deps").setup({
 	},
 })
 
+-- mini.completion: popup completion
+require("mini.completion").setup({
+	delay = {
+		completion = 250,
+		info = 100,
+		signature = 50,
+	},
+})
+
 -- tpope/vim-fugitive: a git client
 MiniDeps.add({
 	source = "tpope/vim-fugitive",
