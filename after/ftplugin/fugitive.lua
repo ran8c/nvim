@@ -1,1 +1,1 @@
-vim.keymap.set("n", "gl", "<cmd>Git log --oneline<CR>", { buffer = true })
+vim.keymap.set("n", "gl", "<cmd>Git log --oneline<CR>", { desc = "Git log", buffer = true })

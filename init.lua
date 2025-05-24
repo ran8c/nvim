@@ -86,7 +86,7 @@ miniclue.setup({
 MiniDeps.add({
 	source = "tpope/vim-fugitive",
 })
-vim.keymap.set("n", "<leader>g", "<cmd>Git<CR>")
+vim.keymap.set("n", "<leader>g", "<cmd>Git<CR>", { desc = "Git" })
 
 -- built-in vim settings
 vim.o.number = true
@@ -114,11 +114,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- remove built-in changes to formatexpr
 		vim.bo.formatexpr = ""
 		-- add extra keymaps (see `:h lsp-defaults`)
-		vim.keymap.set("n", "grd", vim.lsp.buf.definition, { buffer = ev.buf })
-		vim.keymap.set("n", "grD", vim.lsp.buf.declaration, { buffer = ev.buf })
-		vim.keymap.set("n", "grt", vim.lsp.buf.type_defintion, { buffer = ev.buf })
-		vim.keymap.set("n", "grf", vim.lsp.buf.format, { buffer = ev.buf })
-		vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { buffer = ev.buf })
+		local lsp_keymap = function(key, func, desc)
+			local desc = "LSP: " .. desc
+			vim.keymap.set("n", key, func, { desc = desc, buffer = ev.buf })
+		end
+		lsp_keymap("grd", vim.lsp.buf.definition, "Goto definition")
+		lsp_keymap("grD", vim.lsp.buf.declaration, "Goto declaration")
+		lsp_keymap("grt", vim.lsp.buf.type_defintion, "Goto type declaration")
+		lsp_keymap("grf", vim.lsp.buf.format, "Format")
+		lsp_keymap("<leader>d", vim.diagnostic.open_float, "Popup diagnostic")
 	end,
 })
 
