@@ -32,6 +32,14 @@ require("mini.completion").setup({
 	},
 })
 
+-- mini.align: interactive text alignment
+require("mini.align").setup({
+	mappings = {
+		start = "gA",
+		start_with_preview = "ga",
+	},
+})
+
 -- tpope/vim-fugitive: git client
 MiniDeps.add({
 	source = "tpope/vim-fugitive",
