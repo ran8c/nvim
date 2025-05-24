@@ -90,7 +90,9 @@ require("mini.statusline").setup({ use_icons = false })
 vim.o.showmode = false
 
 -- mini.pick: fuzzy finder
-require("mini.pick").setup()
+require("mini.pick").setup({
+	source = { show = require("mini.pick").default_show },
+})
 require("mini.extra").setup()
 local minipick_keymap = function(key, func, desc)
 	local desc = "Pick: " .. desc
