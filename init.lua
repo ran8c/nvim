@@ -1,3 +1,6 @@
+---@module neovim configuration
+---@author ran8c
+
 vim.g.mapleader = " "
 
 -- echasnovski/mini.nvim: large library of small and excellent lua plugins
