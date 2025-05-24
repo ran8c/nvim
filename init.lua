@@ -49,6 +49,20 @@ vim.o.smartcase = true
 -- use <C-c> as alias for <Esc>
 vim.keymap.set({ "", "i" }, "<C-c>", "<Esc>")
 
+-- lsp buffer setup
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(ev)
+		-- remove built-in changes to formatexpr
+		vim.bo.formatexpr = ""
+		-- add extra keymaps (see `:h lsp-defaults`)
+		vim.keymap.set("n", "grd", vim.lsp.buf.definition, { buffer = ev.buf })
+		vim.keymap.set("n", "grD", vim.lsp.buf.declaration, { buffer = ev.buf })
+		vim.keymap.set("n", "grt", vim.lsp.buf.type_defintion, { buffer = ev.buf })
+		vim.keymap.set("n", "grf", vim.lsp.buf.format, { buffer = ev.buf })
+		vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { buffer = ev.buf })
+	end,
+})
+
 -- diagnostics setup
 vim.diagnostic.config({
 	virtual_lines = { current_line = true },
