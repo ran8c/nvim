@@ -16,6 +16,13 @@ if not vim.loop.fs_stat(mini_path) then
 	vim.cmd("packadd mini.nvim | helptags ALL")
 end
 
+-- mini.deps: a minimal package manager
+require("mini.deps").setup({
+	path = {
+		package = path_package,
+	},
+})
+
 -- built-in vim settings
 vim.o.number = true
 vim.o.relativenumber = true
