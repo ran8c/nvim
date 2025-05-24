@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 
--- echasnovski/mini.nvim: a large library of small and excellent lua plugins
+-- echasnovski/mini.nvim: large library of small and excellent lua plugins
 local path_package = vim.fn.stdpath("data") .. "/site"
 local mini_path = path_package .. "/pack/deps/start/mini.nvim"
 if not vim.loop.fs_stat(mini_path) then
@@ -16,7 +16,7 @@ if not vim.loop.fs_stat(mini_path) then
 	vim.cmd("packadd mini.nvim | helptags ALL")
 end
 
--- mini.deps: a minimal package manager
+-- mini.deps: minimal package manager
 require("mini.deps").setup({
 	path = {
 		package = path_package,
@@ -32,7 +32,7 @@ require("mini.completion").setup({
 	},
 })
 
--- tpope/vim-fugitive: a git client
+-- tpope/vim-fugitive: git client
 MiniDeps.add({
 	source = "tpope/vim-fugitive",
 })
