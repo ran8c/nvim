@@ -49,6 +49,11 @@ vim.o.smartcase = true
 -- use <C-c> as alias for <Esc>
 vim.keymap.set({ "", "i" }, "<C-c>", "<Esc>")
 
+-- settings for all lsp servers
+vim.lsp.config('*', {
+	root_markers = { '.git' },
+})
+
 -- enable all configured lsp servers
 local lsp_servers = {}
 do
