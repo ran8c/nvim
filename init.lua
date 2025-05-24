@@ -40,6 +40,9 @@ require("mini.align").setup({
 	},
 })
 
+-- mini.surround: manage delimiters
+require("mini.surround").setup()
+
 -- tpope/vim-fugitive: git client
 MiniDeps.add({
 	source = "tpope/vim-fugitive",
