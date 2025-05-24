@@ -150,6 +150,12 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 	end,
 })
 
+-- danymat/neogen: annotation generator
+MiniDeps.add({ source = "danymat/neogen" })
+require("neogen").setup()
+vim.keymap.set("n", "<leader>a", "<cmd>Neogen<CR>", { desc = "Annotate..." })
+vim.keymap.set("n", "<leader>A", "<cmd>Neogen file<CR>", { desc = "Annotate file" })
+
 -- built-in vim settings
 vim.o.number = true
 vim.o.relativenumber = true
