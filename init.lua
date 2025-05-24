@@ -23,6 +23,12 @@ require("mini.deps").setup({
 	},
 })
 
+-- tpope/vim-fugitive: a git client
+MiniDeps.add({
+	source = "tpope/vim-fugitive",
+})
+vim.keymap.set("n", "<leader>g", "<cmd>Git<CR>")
+
 -- built-in vim settings
 vim.o.number = true
 vim.o.relativenumber = true
