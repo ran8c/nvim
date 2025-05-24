@@ -201,7 +201,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 -- diagnostics setup
 vim.diagnostic.config({
-	virtual_lines = { current_line = true },
+	virtual_text = { current_line = true },
 })
 
 -- settings for all lsp servers
