@@ -122,6 +122,34 @@ MiniDeps.add({
 })
 vim.keymap.set("n", "<leader>g", "<cmd>Git<CR>", { desc = "Git" })
 
+-- nvim-treesitter/nvim-treesitter: improved code parsing library
+MiniDeps.add({
+	source = "nvim-treesitter/nvim-treesitter",
+	hooks = {
+		post_checkout = function()
+			vim.cmd("TSUpdate")
+		end,
+	},
+})
+require("nvim-treesitter.configs").setup({
+	ensure_installed = { "lua", "vimdoc" },
+	highlight = { enable = true },
+})
+vim.api.nvim_create_autocmd("BufReadPost", {
+	-- defer setting up treesitter folds until later
+	callback = function()
+		vim.defer_fn(function()
+			vim.o.foldmethod = "expr"
+			vim.o.foldmethod = "expr"
+			vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+			-- vim.o.foldcolumn = "1"
+			vim.o.foldnestmax = 3
+			vim.o.foldlevel = 99
+			vim.o.foldlevelstart = 99
+		end, 100)
+	end,
+})
+
 -- built-in vim settings
 vim.o.number = true
 vim.o.relativenumber = true
