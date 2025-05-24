@@ -89,6 +89,31 @@ require("mini.jump").setup()
 require("mini.statusline").setup({ use_icons = false })
 vim.o.showmode = false
 
+-- mini.pick: fuzzy finder
+require("mini.pick").setup()
+require("mini.extra").setup()
+local minipick_keymap = function(key, func, desc)
+	local desc = "Pick: " .. desc
+	vim.keymap.set("n", key, func, { desc = desc })
+end
+local minipick_lsp_keymap = function(key, scope, desc)
+	local desc = "LSP: " .. desc
+	vim.keymap.set("n", key, function()
+		MiniExtra.pickers.lsp(scope)
+	end, { desc = desc })
+end
+minipick_keymap("<leader>ff", MiniPick.builtin.files, "Files")
+minipick_keymap("<leader>fF", MiniExtra.pickers.git_files, "Git files")
+minipick_keymap("<leader>fg", MiniPick.builtin.grep_live, "Grep")
+minipick_keymap("<leader>fh", MiniPick.builtin.help, "Helptags")
+minipick_keymap("<leader>fb", MiniPick.builtin.buffers, "Buffers")
+minipick_keymap("<leader>f/", MiniExtra.pickers.buf_lines, "Lines")
+minipick_keymap("<leader>fd", MiniExtra.pickers.diagnostic, "Diagnostics")
+minipick_lsp_keymap("<leader>flr", "references", "References")
+minipick_lsp_keymap("<leader>fls", "workspace_symbol", "Symbols")
+minipick_keymap('<leader>"', MiniExtra.pickers.registers, "Registers")
+minipick_keymap("<leader>fz", MiniExtra.pickers.spellsuggest, "Spellcheck")
+
 -- tpope/vim-fugitive: git client
 MiniDeps.add({
 	source = "tpope/vim-fugitive",
