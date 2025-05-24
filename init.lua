@@ -82,6 +82,9 @@ miniclue.setup({
 	},
 })
 
+-- mini.jump: improved find/till behavior
+require("mini.jump").setup()
+
 -- tpope/vim-fugitive: git client
 MiniDeps.add({
 	source = "tpope/vim-fugitive",
