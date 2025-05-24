@@ -16,3 +16,6 @@ vim.o.shiftwidth = 0
 vim.o.hlsearch = false
 vim.o.ignorecase = true
 vim.o.smartcase = true
+
+-- use <C-c> as alias for <Esc>
+vim.keymap.set({ "", "i" }, "<C-c>", "<Esc>")
