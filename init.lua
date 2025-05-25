@@ -1,5 +1,6 @@
 ---@module neovim configuration
 ---@author ran8c
+---@license BSD 3-Clause License
 
 vim.g.mapleader = " "
 
