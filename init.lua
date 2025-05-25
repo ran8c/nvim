@@ -108,6 +108,9 @@ local minipick_lsp_keymap = function(key, scope, desc)
 		MiniExtra.pickers.lsp(scope)
 	end, { desc = desc })
 end
+local miniextra_pickers_quickfix = function()
+	MiniExtra.pickers.list({ scope = "quickfix" })
+end
 minipick_keymap("<leader>ff", MiniPick.builtin.files, "Files")
 minipick_keymap("<leader>fF", MiniExtra.pickers.git_files, "Git files")
 minipick_keymap("<leader>fg", MiniPick.builtin.grep_live, "Grep")
@@ -119,6 +122,7 @@ minipick_lsp_keymap("<leader>flr", "references", "References")
 minipick_lsp_keymap("<leader>fls", "workspace_symbol", "Symbols")
 minipick_keymap('<leader>"', MiniExtra.pickers.registers, "Registers")
 minipick_keymap("<leader>fz", MiniExtra.pickers.spellsuggest, "Spellcheck")
+minipick_keymap("<leader>fm", miniextra_pickers_quickfix, "Quickfix list")
 
 -- tpope/vim-fugitive: git client
 MiniDeps.add({
