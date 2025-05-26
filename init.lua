@@ -222,12 +222,13 @@ for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
 end
 
 -- enable all configured lsp servers
-local lsp_servers = {}
-do
+local lsp_enabled = true
+if lsp_enabled then
+	local lsp_servers = {}
 	local lsp_server_runtimes = vim.api.nvim_get_runtime_file("lsp/*.lua", true)
 	for _, f in pairs(lsp_server_runtimes) do
 		local lsp_server_name = vim.fn.fnamemodify(f, ":t:r")
 		table.insert(lsp_servers, lsp_server_name)
 	end
+	vim.lsp.enable(lsp_servers)
 end
-vim.lsp.enable(lsp_servers)
