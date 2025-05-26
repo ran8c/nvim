@@ -152,7 +152,6 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 			vim.o.foldmethod = "expr"
 			vim.o.foldmethod = "expr"
 			vim.o.foldexpr = "nvim_treesitter#foldexpr()"
-			-- vim.o.foldcolumn = "1"
 			vim.o.foldnestmax = 3
 			vim.o.foldlevel = 99
 			vim.o.foldlevelstart = 99
