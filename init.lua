@@ -122,7 +122,7 @@ minipick_lsp_keymap("<leader>flr", "references", "References")
 minipick_lsp_keymap("<leader>fls", "workspace_symbol", "Symbols")
 minipick_keymap('<leader>"', MiniExtra.pickers.registers, "Registers")
 minipick_keymap("<leader>fz", MiniExtra.pickers.spellsuggest, "Spellcheck")
-minipick_keymap("<leader>fm", miniextra_pickers_quickfix, "Quickfix list")
+minipick_keymap("<leader>fq", miniextra_pickers_quickfix, "Quickfix list")
 
 -- tpope/vim-fugitive: git client
 MiniDeps.add({
