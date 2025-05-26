@@ -202,7 +202,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		lsp_keymap("grD", vim.lsp.buf.declaration, "Goto declaration")
 		lsp_keymap("grt", vim.lsp.buf.type_definition, "Goto type definition")
 		lsp_keymap("grf", vim.lsp.buf.format, "Format")
-		lsp_keymap("<leader>d", vim.diagnostic.open_float, "Popup diagnostic")
+		lsp_keymap("D", vim.diagnostic.open_float, "Popup diagnostic")
 	end,
 })
 
