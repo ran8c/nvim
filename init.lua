@@ -165,6 +165,18 @@ require("neogen").setup()
 vim.keymap.set("n", "<leader>a", "<cmd>Neogen<CR>", { desc = "Annotate..." })
 vim.keymap.set("n", "<leader>A", "<cmd>Neogen file<CR>", { desc = "Annotate file" })
 
+MiniDeps.add({
+	source = "https://github.com/rose-pine/neovim",
+	name = "rose-pine",
+})
+require("rose-pine").setup({
+	styles = {
+		bold = false,
+		italic = false,
+	},
+})
+vim.cmd.colorscheme("rose-pine")
+
 -- built-in vim settings
 vim.o.number = true
 vim.o.relativenumber = true
