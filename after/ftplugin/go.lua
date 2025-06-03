@@ -1,2 +1,2 @@
-vim.bo.equalprg = "gofumpt"
-vim.bo.makeprg = "{ staticcheck && go build }"
+vim.bo.equalprg = "gofmt -s"
+vim.bo.makeprg = "{ go vet && staticcheck && go build }"
