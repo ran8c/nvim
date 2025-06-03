@@ -199,9 +199,11 @@ vim.keymap.set({ "", "i" }, "<C-c>", "<Esc>")
 
 -- quickly lint current buffer (see `:h makeprg`)
 vim.keymap.set("n", "<leader>m", "<cmd>make<CR>", { desc = "Lint buffer" })
+vim.keymap.set("n", "<leader>M", ":let &makeprg=''", { desc = "Set linter" })
 
 -- format current buffer
 vim.keymap.set("n", "<leader>=", "mzgg=G`z", { desc = "Format buffer" })
+vim.keymap.set("n", "<leader>+", ":let &equalprg=''", { desc = "Set formatter" })
 
 -- open the quickfix list
 vim.keymap.set("n", "<leader>q", "<cmd>copen<CR>", { desc = "Open qflist" })
