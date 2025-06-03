@@ -203,6 +203,10 @@ vim.keymap.set("n", "<leader>m", "<cmd>make<CR>", { desc = "Lint buffer" })
 -- format current buffer
 vim.keymap.set("n", "<leader>=", "mzgg=G`z", { desc = "Format buffer" })
 
+-- open the quickfix list
+vim.keymap.set("n", "<leader>q", "<cmd>copen<CR>", { desc = "Open qflist" })
+vim.keymap.set("n", "<leader>Q", "<cmd>cclose<CR>", { desc = "Close qflist" })
+
 -- lsp buffer setup
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(ev)
