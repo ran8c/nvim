@@ -1,5 +1,5 @@
 # neovim
 
-yet another neovim configuration
+yet another [neovim](https://github.com/neovim/neovim) configuration
 
-version: **v0.11.1**
+version: **v0.11.2**
