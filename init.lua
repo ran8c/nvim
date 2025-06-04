@@ -166,15 +166,11 @@ vim.keymap.set("n", "<leader>a", "<cmd>Neogen<CR>", { desc = "Annotate..." })
 vim.keymap.set("n", "<leader>A", "<cmd>Neogen file<CR>", { desc = "Annotate file" })
 
 -- colorscheme
-vim.cmd.colorscheme("default")
-vim.api.nvim_set_hl(0, "Statement", {})
-vim.api.nvim_set_hl(0, "Function", {})
-vim.api.nvim_set_hl(0, "Identifier", {})
-vim.api.nvim_set_hl(0, "Special", {})
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NvimDarkBlue" })
-vim.api.nvim_set_hl(0, "Constant", { fg = "Red" })
-vim.api.nvim_set_hl(0, "String", { fg = "LightGreen" })
-vim.api.nvim_set_hl(0, "Comment", { fg = "NvimLightYellow" })
+MiniDeps.add({ source = "aktersnurra/no-clown-fiesta.nvim" })
+require("no-clown-fiesta").setup({
+	transparent = true,
+})
+vim.cmd.colorscheme("no-clown-fiesta")
 
 -- built-in vim settings
 vim.o.number = true
