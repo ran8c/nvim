@@ -143,7 +143,7 @@ require("nvim-treesitter.configs").setup({
 	sync_install = false,
 	ensure_installed = { "lua", "vimdoc", "markdown", "gitcommit" },
 	auto_install = true,
-	highlight = { enable = true },
+	highlight = { enable = false },
 })
 vim.api.nvim_create_autocmd("BufReadPost", {
 	-- defer setting up treesitter folds until later
@@ -165,9 +165,16 @@ require("neogen").setup()
 vim.keymap.set("n", "<leader>a", "<cmd>Neogen<CR>", { desc = "Annotate..." })
 vim.keymap.set("n", "<leader>A", "<cmd>Neogen file<CR>", { desc = "Annotate file" })
 
--- p00f/alabaster: minimal colorscheme
-MiniDeps.add({ source = "p00f/alabaster.nvim" })
-vim.cmd.colorscheme("alabaster")
+-- colorscheme
+vim.cmd.colorscheme("default")
+vim.api.nvim_set_hl(0, "Statement", {})
+vim.api.nvim_set_hl(0, "Function", {})
+vim.api.nvim_set_hl(0, "Identifier", {})
+vim.api.nvim_set_hl(0, "Special", {})
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NvimDarkBlue" })
+vim.api.nvim_set_hl(0, "Constant", { fg = "Red" })
+vim.api.nvim_set_hl(0, "String", { fg = "LightGreen" })
+vim.api.nvim_set_hl(0, "Comment", { fg = "NvimLightYellow" })
 
 -- built-in vim settings
 vim.o.number = true
