@@ -95,41 +95,6 @@ MiniDeps.add({
 })
 vim.keymap.set("n", "<leader>g", "<cmd>Git<CR>", { desc = "Git" })
 
--- nvim-treesitter/nvim-treesitter: improved code parsing library
-MiniDeps.add({
-	source = "nvim-treesitter/nvim-treesitter",
-	hooks = {
-		post_checkout = function()
-			vim.cmd("TSUpdate")
-		end,
-	},
-})
-require("nvim-treesitter.configs").setup({
-	sync_install = false,
-	ensure_installed = { "lua", "vimdoc", "markdown", "gitcommit" },
-	auto_install = true,
-	highlight = { enable = false },
-})
-vim.api.nvim_create_autocmd("BufReadPost", {
-	-- defer setting up treesitter folds until later
-	callback = function()
-		vim.defer_fn(function()
-			vim.o.foldmethod = "expr"
-			vim.o.foldmethod = "expr"
-			vim.o.foldexpr = "nvim_treesitter#foldexpr()"
-			vim.o.foldnestmax = 3
-			vim.o.foldlevel = 99
-			vim.o.foldlevelstart = 99
-		end, 100)
-	end,
-})
-
--- danymat/neogen: annotation generator
-MiniDeps.add({ source = "danymat/neogen" })
-require("neogen").setup()
-vim.keymap.set("n", "<leader>a", "<cmd>Neogen<CR>", { desc = "Annotate..." })
-vim.keymap.set("n", "<leader>A", "<cmd>Neogen file<CR>", { desc = "Annotate file" })
-
 -- colorscheme
 MiniDeps.add({ source = "cocopon/iceberg.vim" })
 vim.cmd.colorscheme("iceberg")
