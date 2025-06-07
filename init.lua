@@ -191,6 +191,9 @@ vim.o.smartcase = true
 -- use <C-c> as alias for <Esc>
 vim.keymap.set({ "", "i" }, "<C-c>", "<Esc>")
 
+-- switch modes like normal in terminal
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+
 -- quickly lint current buffer (see `:h makeprg`)
 vim.keymap.set("n", "<leader>m", "<cmd>make<CR>", { desc = "Lint buffer" })
 vim.keymap.set("n", "<leader>M", ":let &makeprg=''", { desc = "Set linter" })
