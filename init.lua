@@ -89,10 +89,6 @@ miniclue.setup({
 -- mini.jump: improved find/till behavior
 require("mini.jump").setup()
 
--- mini.statusline: pretty bottom line
--- require("mini.statusline").setup({ use_icons = false })
--- vim.o.showmode = false
-
 -- mini.pick: fuzzy finder
 require("mini.pick").setup({
 	source = { show = require("mini.pick").default_show },
