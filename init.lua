@@ -153,6 +153,13 @@ vim.o.hlsearch = false
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
+vim.o.path = vim.o.path .. "**"
+vim.o.wildmenu = true
+
+-- command abbreviations
+vim.keymap.set("ca", "e", "edit")
+vim.keymap.set("ca", "f", "find")
+
 -- use <C-c> as alias for <Esc>
 vim.keymap.set({ "", "i" }, "<C-c>", "<Esc>")
 
