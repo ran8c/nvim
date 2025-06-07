@@ -233,6 +233,9 @@ vim.diagnostic.config({
 -- settings for all lsp servers
 vim.lsp.config("*", {
 	root_markers = { ".git" },
+	server_capabilities = {
+		semanticTokensProvider = nil,
+	},
 })
 
 -- hide all lsp semantic highlights
