@@ -90,8 +90,8 @@ miniclue.setup({
 require("mini.jump").setup()
 
 -- mini.statusline: pretty bottom line
-require("mini.statusline").setup({ use_icons = false })
-vim.o.showmode = false
+-- require("mini.statusline").setup({ use_icons = false })
+-- vim.o.showmode = false
 
 -- mini.pick: fuzzy finder
 require("mini.pick").setup({
@@ -166,11 +166,10 @@ vim.keymap.set("n", "<leader>a", "<cmd>Neogen<CR>", { desc = "Annotate..." })
 vim.keymap.set("n", "<leader>A", "<cmd>Neogen file<CR>", { desc = "Annotate file" })
 
 -- colorscheme
-MiniDeps.add({ source = "aktersnurra/no-clown-fiesta.nvim" })
-require("no-clown-fiesta").setup({
-	transparent = true,
-})
-vim.cmd.colorscheme("no-clown-fiesta")
+MiniDeps.add({ source = "cocopon/iceberg.vim" })
+vim.cmd.colorscheme("iceberg")
+vim.cmd("highlight LineNr guibg=none ctermbg=none")
+vim.cmd("highlight SignColumn guibg=none ctermbg=none")
 
 -- built-in vim settings
 vim.o.number = true
