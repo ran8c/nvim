@@ -140,6 +140,7 @@ vim.cmd("highlight SignColumn guibg=none ctermbg=none")
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.signcolumn = "yes"
+vim.o.winborder = "double"
 
 vim.o.textwidth = 79
 vim.o.colorcolumn = "+1"
